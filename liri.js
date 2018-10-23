@@ -58,13 +58,13 @@ switch (input) {
             
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
                     var title = body.Title;
-                    var year = body.year;
-                    var ratings1 = body.ratings[0];
-                    var ratings2 = body.ratings[1];
-                    var country = body.country;
+                    var year = body.Year;
+                    var ratings1 = body.Ratings[0].Value;
+                    var ratings2 = body.Ratings[1].Value;
+                    var country = body.Country;
                     var actors = body.Actors;
                     var plot = body.Plot;
-                    var language = body.language;
+                    var language = body.Language;
                     var movieInfo = "title: " + title + "\n" +
                         "year: " + year + "\n" +
                         "IMDB rating: " + ratings1 + "\n" +
@@ -72,10 +72,9 @@ switch (input) {
                         "country: " + country + "\n" +
                         "actors: " + actors + "\n" +
                         "plot: " + plot + "\n" +
-                        "language: " + language + "\n" +
-                        
-                 console.log();
-             console.log('body:', body); // Print the HTML for the Google homepage.
+                        "language: " + language + "\n";
+                 console.log(movieInfo);
+            //  console.log('body:', body); // Print the HTML for the Google homepage.
     
         });
     }
