@@ -50,6 +50,9 @@ switch (input) {
     
 
     function callOmdb (moTitle) {
+        if (!moTitle ) {
+            moTitle = "Mr. Nobody"
+        };
         request("http://www.omdbapi.com/?apikey=" + keys.omdb.id + "&t=" + moTitle, function (error, response, body) {
             var body = JSON.parse(body);
             if(error){
@@ -75,7 +78,7 @@ switch (input) {
                         "language: " + language + "\n";
                  console.log(movieInfo);
             //  console.log('body:', body); // Print the HTML for the Google homepage.
-    
+            
         });
     }
 
