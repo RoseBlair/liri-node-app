@@ -8,12 +8,18 @@ require("moment");
 
 var input = (process.argv[2]);
 
+//function to get information about concerts from Bands in Town API
+
 var callConcert = function (artist) {
     request("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp", function (error, response, body) {
+        
+        //parse body to make information into string.
         var body = JSON.parse(body);
         if(error){
             console.log('error:', error); // Print the error if one occurred
         }
+    
+        //for loop to access all information.
         
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         for (i=0; i< body.length; i++) {
@@ -24,6 +30,8 @@ var callConcert = function (artist) {
 
     });
 }
+
+//Switch cases according to what it typed in.
 
 
 switch (input) {
@@ -47,7 +55,8 @@ switch (input) {
 
     };
 
-    
+   //function to call OMDB and print out information
+   //to the terminal.  
 
     function callOmdb (moTitle) {
         if (!moTitle ) {
@@ -59,6 +68,8 @@ switch (input) {
                 console.log('error:', error); // Print the error if one occurred
             }
             
+            //console.log necessary information.
+
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
                     var title = body.Title;
                     var year = body.Year;
@@ -82,4 +93,14 @@ switch (input) {
         });
     }
 
+    //I was unable to complete the spotify section. 
+    //I should have been able to write a song name 
+    //and get a response from the Spotify API
+    //with information about the song.
+
+
+
+    // function callSpotify () {
+    //     console.log(keys.id);
     
+    // };
